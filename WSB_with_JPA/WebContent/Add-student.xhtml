@@ -1,0 +1,49 @@
+<?xml version="1.0" encoding="ISO-8859-1" ?>
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Transitional//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-transitional.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml"
+	xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+	xmlns:h="http://xmlns.jcp.org/jsf/html"
+	xmlns:f="http://xmlns.jcp.org/jsf/core">
+	
+	<head>
+		<title><ui:insert name="title">Add Student</ui:insert></title>
+	</head>
+	
+	<body>
+		<div id="header">
+			<ui:insert name="header">
+				<h1>Add Student</h1>
+			</ui:insert>
+		</div>
+	
+		<div id="content">
+			<ui:insert name="content">
+				<h:form>
+					<h:commandButton value="Cancel" action="List-students" immediate="true"></h:commandButton>
+					<br />
+					<h:outputText value="First Name : " />
+					<h:inputText value="#{student.firstname}" title="firstName"
+						id="firstName" required="true" requiredMessage="Fill the first name please"/>
+						<h:message for="firstName" style="color:red"/>
+					<br />
+					<h:outputText value="Last Name : " />
+					<h:inputText value="#{student.lastname}" title="lastName"
+						id="lastName" required="true" requiredMessage="Fill the last name please"/>
+						<h:message for="lastName" style="color:red"/>
+					<br />
+					<h:outputText value="Email : " />
+					<h:inputText value="#{student.email}" title="email" id="email" validatorMessage = "Invalid email address"  >
+					
+					
+					</h:inputText>
+					<h:message for="email" style="color:red"/>
+					
+					<br />
+					<h:commandButton action="#{studentManager.addStudent(student)}"
+						value="Submit" />
+				</h:form>
+			</ui:insert>
+		</div>
+	</body>
+
+</html>
